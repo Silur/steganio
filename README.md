@@ -7,11 +7,12 @@ Note that you need to pass the **seed** to everyone you want to share the secret
 
 ## Security concerns
 
-Steganography is **obscurity**. It can only hide stuff from __humans__ 
-Cryptography is **security** it also aim to hide stuff from computers.
+Steganography is **obscurity**. It can only hide stuff from __humans__
+
+Cryptography is **security** it also aims to hide stuff from computers.
 
 This means that no matter how long you choose your seed, your original data will be always in the image somewhere (just scrambled). Although F5 is a quite good algorithm that can encode lots of stuff into the image it's shown to be vulnerable to statistical attacks.
-To mitigate this I strongly advise you to use the encrypt function of the app or use an external (WinGPG etc) App to encrypt your data first.
+To mitigate this I strongly advise you to use the encrypt function of the app or use an external (WinGPG etc) one to encrypt your data first.
 
 ## Build Setup
 
