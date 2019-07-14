@@ -214,16 +214,25 @@ export default {
       if (this.mustEncrypt) {
         this.encrypt(secret, this.password).then((cipher) => {
           const res = stegger.embed(this.cover, new Uint8Array(cipher))
-          this.promptDownload('data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, res)), '.jpg')
+          this.promptDownload('data:image/jpeg;base64,' + btoa(this.Uint8ToString(res)), '.jpg')
         }).catch((e) => {
           console.log('encryption error', e)
         })
       } else {
         const res = stegger.embed(this.cover, secret)
-        this.promptDownload('data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, res)), '.jpg')
+        this.promptDownload('data:image/jpeg;base64,' + btoa(this.Uint8ToString(res)), '.jpg')
       }
     },
+    Uint8ToString (u8a) {
+      const CHUNK_SZ = 0x8000
+      const c = []
+      for (let i = 0; i < u8a.length; i += CHUNK_SZ) {
+        c.push(String.fromCharCode.apply(null, u8a.subarray(i, i + CHUNK_SZ)))
+      }
+      return c.join('')
+    },
     promptDownload (data, ext) {
+      console.log('call prompt with', data)
       const element = document.createElement('a')
       element.setAttribute('href', data)
       const filename = Math.random().toString(36).substring(2)

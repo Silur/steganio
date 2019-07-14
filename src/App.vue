@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="columns is-vcentered header">
-      <div class="column is-1">
+      <div class="column is-3">
         <span class="title">stegan.io</span>
       </div>
       <div class="column is-2 is-hidden-mobile"></div>
