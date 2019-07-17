@@ -213,13 +213,26 @@ export default {
       }
       if (this.mustEncrypt) {
         this.encrypt(secret, this.password).then((cipher) => {
-          const res = stegger.embed(this.cover, new Uint8Array(cipher))
+          let res = []
+          try {
+            res = stegger.embed(this.cover, new Uint8Array(cipher))
+          } catch (err) {
+            alert('this jpg file is not suitable for steganography')
+            return 0
+          }
           this.promptDownload('data:image/jpeg;base64,' + btoa(this.Uint8ToString(res)), '.jpg')
         }).catch((e) => {
           console.log('encryption error', e)
         })
       } else {
-        const res = stegger.embed(this.cover, secret)
+        let res = []
+        try {
+          res = stegger.embed(this.cover, secret)
+        } catch (err) {
+          alert('this jpg file is not suitable for steganography')
+          return 0
+        }
+
         this.promptDownload('data:image/jpeg;base64,' + btoa(this.Uint8ToString(res)), '.jpg')
       }
     },

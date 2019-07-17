@@ -18,8 +18,8 @@
     "v-tooltip": "^2.0.0-rc.33",
     "vue": "^2.5.2",
     "vue-picture-input": "^2.1.6",
-	"lodash": ">=4.17.13",
-	"mem": ">=4.0.0"
+    "lodash": ">=4.17.13",
+    "mem": ">=4.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
