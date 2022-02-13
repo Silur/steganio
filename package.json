@@ -10,6 +10,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "bulma": "^0.9.0",
+    "chokidar": "^3.5.3",
     "core-js": "^3.6.5",
     "f5stegojs": "^0.1.2",
     "mem": "^6.1.1",
